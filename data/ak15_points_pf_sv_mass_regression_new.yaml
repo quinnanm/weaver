@@ -43,6 +43,19 @@ new_variables:
    ### can use functions from `math`, `np` (numpy), and `awkward` in the expression
    pfcand_mask: awkward.JaggedArray.ones_like(pfcand_etarel)
    sv_mask: awkward.JaggedArray.ones_like(sv_etarel)
+   # Background (Top)
+   fj_isTop_merged: (fj_isTop==1) & (fj_nProngs==3)
+   fj_isTop_semimerged: (fj_isTop==1) & (fj_nProngs==2)
+   fj_isToplep_merged: (fj_isToplep==1) & (fj_nProngs>=2)  # so that you have at least the lepton and the b merged in the leptonic case
+   # Signal (HWW)
+   fj_isHWW_elenuqq_merged: (fj_H_WW_elenuqq==1) & (fj_nProngs==4)
+   fj_isHWW_elenuqq_semimerged: (fj_H_WW_elenuqq==1) & (fj_nProngs==3)
+   fj_isHWW_munuqq_merged: (fj_H_WW_munuqq==1) & (fj_nProngs==4)
+   fj_isHWW_munuqq_semimerged: (fj_H_WW_munuqq==1) & (fj_nProngs==3)
+   fj_isHWW_taunuqq_merged: (fj_H_WW_taunuqq==1) & (fj_nProngs==4)
+   fj_isHWW_taunuqq_semimerged: (fj_H_WW_taunuqq==1) & (fj_nProngs==3)
+   fj_H_WW_4q_3q: (fj_H_WW_4q==1) & (fj_nProngs==3)
+   fj_H_WW_4q_4q: (fj_H_WW_4q==1) & (fj_nProngs==4)
 
 preprocess:
   ### method: [manual, auto] - whether to use manually specified parameters for variable standardization
@@ -156,7 +169,17 @@ observers:
    - fj_H_WW_munuqq
    - fj_H_WW_taunuqq
    - fj_nProngs
-   - fj_evt_met_pt  
+   - fj_evt_met_pt
+   - fj_isTop_merged
+   - fj_isTop_semimerged
+   - fj_isToplep_merged
+   - fj_isHWW_elenuqq_merged
+   - fj_isHWW_elenuqq_semimerged
+   - fj_isHWW_munuqq_semimerged
+   - fj_isHWW_taunuqq_merged
+   - fj_isHWW_taunuqq_semimerged
+   - fj_H_WW_4q_3q
+   - fj_H_WW_4q_4q
 
 weights:
    ### [option 1] use precomputed weights stored in the input files
