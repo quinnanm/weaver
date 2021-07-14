@@ -1,5 +1,6 @@
 treename:
-	Events
+    Events
+
 selection:
    ### use `&`, `|`, `~` for logical operations on numpy arrays
    ### can use functions from `math`, `np` (numpy), and `awkward` in the expression
