@@ -99,12 +99,7 @@ inputs:
          - [pfcand_dzsig, 0, 0.9]
          - [pfcand_dxy, 0.0, 300]
          - [pfcand_dxysig, 0, 1.0]
-         - [pfcand_btagEtaRel, 1.5, 0.5]
-         - [pfcand_btagPtRatio, 0, 1]
-         - [pfcand_btagPParRatio, 0, 1]
-         - [pfcand_btagSip3dVal, 0, 100]
-         - [pfcand_btagSip3dSig, 0, 0.5]
-         - [pfcand_btagJetDistVal, 0, 40]
+
    pf_mask:
       length: 100
       vars: 
