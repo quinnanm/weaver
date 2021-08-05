@@ -21,7 +21,7 @@ spec:
            --network-config networks/particle_net_pf_sv_mass_regression.py
            --model-prefix /hwwtaggervol/models/v04_regression/4_ak15Jul27_v04_hww_4q_QCD_bsize128_fstep0p02_lr3em3_epoch-18_state.pt
            --gpus 0,1,2 --batch-size 128 
-           --predict-output /hwwtaggervol/output/4_v04_ak15_regression_hww_4q_QCD_Jul27_ep18.root &
+           --predict-output /hwwtaggervol/output/4_v04_ak15_regression_hww_4q_QCD_Aug5_ep18.root &
           wait)
         volumeMounts:
         - mountPath: /hwwtaggervol
