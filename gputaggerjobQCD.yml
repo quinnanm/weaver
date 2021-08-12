@@ -16,7 +16,7 @@ spec:
         - >
           git clone https://github.com/cmantill/weaver && cd weaver && 
           (python -u train.py
-          --data-train '/hwwtaggervol/training/ak15_Jul27/train/QCD*/*.root' '/hwwtaggervol/training/ak15_Jul27/train/BulkGravitonToHHTo4Q*/*.root' 
+          --data-train '/hwwtaggervol/training/ak15_Jul27/train/QCD*/*.root' 
           --data-config data/ak15_points_pf_sv_mass_regression_QCD.yaml
           --network-config networks/particle_net_pf_sv_mass_regression.py
           --model-prefix /hwwtaggervol/models/v04_regression/4_ak15Jul27_v04_QCD_bsize128_fstep0p02_lr3em3 
