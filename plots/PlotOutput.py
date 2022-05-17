@@ -121,6 +121,10 @@ class PlotOutput:
                 "fj_isQCDcc",
                 "fj_isQCDothers",
             ]
+        elif "astw" in self.bkg:
+            bkglabels = [
+                "fj_QCD_label",
+            ]
         elif self.bkg == "qcd1lep":
             bkglabels = [
                 "fj_QCD_label",
@@ -182,6 +186,11 @@ class PlotOutput:
             elif self.bkg == "qcd1lep":
                 mask += (
                     f"& ( ((fj_QCD_label==1) & ({self.mbranch}<=0)) | "
+                    f"(({self.siglabel}==1) & ({self.mbranch}>0)) )"
+                )
+            elif "astw" in self.bkg:
+                mask += (
+                    f"& ( ((fj_QCD_label==1)) | "
                     f"(({self.siglabel}==1) & ({self.mbranch}>0)) )"
                 )
 
