@@ -169,7 +169,7 @@ observers:
    - fj_isHVV_taunuqq_semimerged
    # - fj_ttbar_bmerged
    # - fj_ttbar_bsplit
-   # - fj_QCD_label
+   - fj_QCD_label
    # - fj_ttbar_label
    # - fj_wjets_label
 
