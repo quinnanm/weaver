@@ -123,7 +123,9 @@ class PlotOutput:
             ]
         elif "astw" in self.bkg:
             bkglabels = [
-                "fj_QCD_label",
+                "fj_ttbar_bsplit",
+                "fj_ttbar_bmerged",
+                "fj_wjets_label",
             ]
         elif self.bkg == "qcd1lep":
             bkglabels = [
@@ -186,11 +188,6 @@ class PlotOutput:
             elif self.bkg == "qcd1lep":
                 mask += (
                     f"& ( ((fj_QCD_label==1) & ({self.mbranch}<=0)) | "
-                    f"(({self.siglabel}==1) & ({self.mbranch}>0)) )"
-                )
-            elif "astw" in self.bkg:
-                mask += (
-                    f"& ( ((fj_QCD_label==1)) | "
                     f"(({self.siglabel}==1) & ({self.mbranch}>0)) )"
                 )
 
