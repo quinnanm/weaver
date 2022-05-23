@@ -40,15 +40,15 @@ new_variables:
     # fj_QCD_label: ((fj_W_2q==1) | (fj_W_elenu==1) | (fj_W_munu==1) | (fj_W_taunu==1) | (fj_Top_2q==1) | (fj_Top_elenu==1) | (fj_Top_munu==1) | (fj_Top_taunu==1))
     ## ttbar and wjets
     ## QUESTION:SPLIT INTO PRONGS/SEMIMERGED MERGED???
-    # fj_ttbar_bmerged: (fj_Top_bmerged==1) & ((fj_Top_2q==1) | (fj_Top_elenu==1) | (fj_Top_munu==1) | (fj_Top_taunu==1))
-    # fj_ttbar_bsplit: (fj_Top_bmerged!=1) & ((fj_Top_2q==1) | (fj_Top_elenu==1) | (fj_Top_munu==1) | (fj_Top_taunu==1))
-    # fj_wjets_label: ((fj_W_2q==1) | (fj_W_elenu==1) | (fj_W_munu==1) | (fj_W_taunu==1))
+    fj_ttbar_bmerged: (fj_Top_bmerged==1) & ((fj_Top_2q==1) | (fj_Top_elenu==1) | (fj_Top_munu==1) | (fj_Top_taunu==1))
+    fj_ttbar_bsplit: (fj_Top_bmerged!=1) & ((fj_Top_2q==1) | (fj_Top_elenu==1) | (fj_Top_munu==1) | (fj_Top_taunu==1))
+    fj_wjets_label: ((fj_W_2q==1) | (fj_W_elenu==1) | (fj_W_munu==1) | (fj_W_taunu==1))
     fj_bkgd_label: ((fj_W_2q==1) | (fj_W_elenu==1) | (fj_W_munu==1) | (fj_W_taunu==1) | (fj_Top_2q==1) | (fj_Top_elenu==1) | (fj_Top_munu==1) | (fj_Top_taunu==1))
     #FOR PLOTTING QCD
-    fj_ttbar_bmerged: (fj_QCD_label==1) 
-    fj_ttbar_bsplit: (fj_QCD_label==1)
-    fj_wjets_label: (fj_QCD_label==1)
-    fj_bkgd_label: (fj_QCD_label==1)
+    # fj_ttbar_bmerged: (fj_QCD_label==1) 
+    # fj_ttbar_bsplit: (fj_QCD_label==1)
+    # fj_wjets_label: (fj_QCD_label==1)
+    # fj_bkgd_label: (fj_QCD_label==1)
     # fj_ttbar_label: ((fj_Top_2q==1) | (fj_Top_elenu==1) | (fj_Top_munu==1) | (fj_Top_taunu==1))
     # Signal (HVV)
     fj_isHVV_elenuqq_merged: (fj_H_VV_elenuqq==1) & (fj_nprongs==4)
