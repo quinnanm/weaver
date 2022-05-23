@@ -121,7 +121,7 @@ class PlotOutput:
                 "fj_isQCDcc",
                 "fj_isQCDothers",
             ]
-        elif "asqcd2" in self.bkg:
+        elif "asQCD" in self.bkg:
             bkglabels = [
                 "fj_QCD_label",
             ]
@@ -192,7 +192,7 @@ class PlotOutput:
                     f"& ( (((fj_isQCDb==1) | (fj_isQCDbb==1) | (fj_isQCDc==1) | (fj_isQCDcc==1) | (fj_isQCDothers==1)) ) | "
                     f"(({self.siglabel}==1) & ({self.mbranch}>0)) )"
                 )
-            elif "asqcd2" in self.bkg:
+            elif "asQCD" in self.bkg:
                 mask += (
                     f"& ( ((fj_isQCD_label==1)) | "
                     f"(({self.siglabel}==1) & ({self.mbranch}>0)) )"
