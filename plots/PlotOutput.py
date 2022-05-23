@@ -136,11 +136,11 @@ class PlotOutput:
                 "fj_ttbar_bsplit",
                 "fj_ttbar_bmerged",
             ]
-        elif self.bkg == "ttbarbsplit":
+        elif self.bkg == "top_bsplit":
             bkglabels = [
                 "fj_ttbar_bsplit",
             ]
-        elif self.bkg == "ttbarbmerged":
+        elif self.bkg == "top_bmerged":
             bkglabels = [
                 "fj_ttbar_bmerged",
             ]
