@@ -121,6 +121,10 @@ class PlotOutput:
                 "fj_isQCDcc",
                 "fj_isQCDothers",
             ]
+        elif "asqcd2" in self.bkg:
+            bkglabels = [
+                "fj_QCD_label",
+            ]
         elif "astw" in self.bkg:
             bkglabels = [
                 "fj_ttbar_bsplit",
@@ -186,6 +190,11 @@ class PlotOutput:
             elif "asqcd" in self.bkg:
                 mask += (
                     f"& ( (((fj_isQCDb==1) | (fj_isQCDbb==1) | (fj_isQCDc==1) | (fj_isQCDcc==1) | (fj_isQCDothers==1)) ) | "
+                    f"(({self.siglabel}==1) & ({self.mbranch}>0)) )"
+                )
+            elif "asqcd2" in self.bkg:
+                mask += (
+                    f"& ( ((fj_isQCD_label==1)) | "
                     f"(({self.siglabel}==1) & ({self.mbranch}>0)) )"
                 )
             elif self.bkg == "qcd_old":
