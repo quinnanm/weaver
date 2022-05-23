@@ -194,7 +194,7 @@ class PlotOutput:
                 )
             elif "asQCD" in self.bkg:
                 mask += (
-                    f"& ( ((fj_isQCD_label==1)) | "
+                    f"& ( ((fj_QCD_label==1)) | "
                     f"(({self.siglabel}==1) & ({self.mbranch}>0)) )"
                 )
             elif self.bkg == "qcd_old":
