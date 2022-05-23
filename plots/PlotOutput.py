@@ -131,6 +131,11 @@ class PlotOutput:
                 "fj_ttbar_bmerged",
                 "fj_wjets_label",
             ]
+	elif "as_t" in self.bkg:
+            bkglabels = [
+                "fj_ttbar_bsplit",
+                "fj_ttbar_bmerged",
+            ]
         elif self.bkg == "qcd1lep":
             bkglabels = [
                 "fj_QCD_label",
