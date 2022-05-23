@@ -7,9 +7,9 @@ label_dict = {
     "w_asqcd": {"legend": "WJets", "label": "fj_bkg_label"},
     "top_asqcd": {"legend": "Top", "label": "fj_bkg_label"},
     "wtop_asqcd": {"legend": "WJets+Top", "label": "fj_bkg_label"},
-    "w_asqcd2": {"legend": "WJets", "label": "fj_bkg_label"},
-    "top_asqcd2": {"legend": "Top", "label": "fj_bkg_label"},
-    "wtop_asqcd2": {"legend": "WJets+Top", "label": "fj_bkg_label"},
+    "w_asQCD": {"legend": "WJets", "label": "fj_bkg_label"},
+    "top_asQCD": {"legend": "Top", "label": "fj_bkg_label"},
+    "wtop_asQCD": {"legend": "WJets+Top", "label": "fj_bkg_label"},
 
     "top": {"legend": "Top", "label": "fj_isTop_label"},
     "top_lep": {"legend": "Top lep", "label": "fj_isToplep"},
