@@ -27,7 +27,7 @@ selection:
           (fj_isQCDcc==1) |
           (fj_isQCDothers == True) ) &
         (fj_genRes_mass<=0) ) |
-      ( ((fj_H_VV_elenuqq==1) | (fj_H_VV_munuqq==1) | (fj_H_VV_taunuqq==1)) &
+      ( ((fj_H_VV_elenuqq==1) | (fj_H_VV_munuqq==1) | (fj_H_VV_leptauelvqq==1) | (fj_H_VV_leptaumuvqq==1) | (fj_H_VV_hadtauvqq==1)) &
         (fj_nprongs>1) &
         (fj_genRes_mass>0) ) ))
 
@@ -50,12 +50,6 @@ new_variables:
     # fj_bkgd_label: (fj_QCD_label==1)
     # fj_ttbar_label: ((fj_Top_2q==1) | (fj_Top_elenu==1) | (fj_Top_munu==1) | (fj_Top_taunu==1))
     # Signal (HVV)
-    fj_isHVV_elenuqq_merged: (fj_H_VV_elenuqq==1) & (fj_nprongs==4)
-    fj_isHVV_elenuqq_semimerged: (fj_H_VV_elenuqq==1) & (fj_nprongs==3)
-    fj_isHVV_munuqq_merged: (fj_H_VV_munuqq==1) & (fj_nprongs==4)
-    fj_isHVV_munuqq_semimerged: (fj_H_VV_munuqq==1) & (fj_nprongs==3)
-    fj_isHVV_taunuqq_merged: (fj_H_VV_taunuqq==1) & (fj_nprongs==4)
-    fj_isHVV_taunuqq_semimerged: (fj_H_VV_taunuqq==1) & (fj_nprongs==3)
     fj_isHVV_elenuqq: (fj_H_VV_elenuqq==1)
     fj_isHVV_munuqq: (fj_H_VV_munuqq==1)
     fj_isHVV_leptauelvqq: (fj_H_VV_leptauelvqq==1)
@@ -170,14 +164,7 @@ observers:
    - fj_nprongs
    - fj_H_VV_elenuqq
    - fj_H_VV_munuqq
-   - fj_H_VV_taunuqq
    - target_mass
-   - fj_isHVV_elenuqq_merged
-   - fj_isHVV_elenuqq_semimerged
-   - fj_isHVV_munuqq_merged
-   - fj_isHVV_munuqq_semimerged
-   - fj_isHVV_taunuqq_merged
-   - fj_isHVV_taunuqq_semimerged
    - fj_QCD_label
    - fj_isHVV_istau
    - fj_isHVV_leptau
