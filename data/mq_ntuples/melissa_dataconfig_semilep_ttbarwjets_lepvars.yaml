@@ -56,7 +56,7 @@ new_variables:
     # Signal (HVV)
     fj_isHVV_elenuqq: (fj_H_VV_elenuqq==1)
     fj_isHVV_munuqq: (fj_H_VV_munuqq==1)
-    fj_isHVV_taunuqq:((fj_H_VV_leptauelvqq==1) | (fj_H_VV_leptaumuvqq==1) | (fj_H_VV_hadtauvqq==1))
+    fj_isHVV_taunuqq: ((fj_H_VV_leptauelvqq==1) | (fj_H_VV_leptaumuvqq==1) | (fj_H_VV_hadtauvqq==1))
     fj_isHVV_elenuqq_lepmerged: (fj_H_VV_elenuqq==1) & (fj_lepinprongs==1)
     fj_isHVV_elenuqq_lepsplit: (fj_H_VV_elenuqq==1) & (fj_lepinprongs!=1)
     fj_isHVV_munuqq_lepmerged: (fj_H_VV_munuqq==1) & (fj_lepinprongs==1)
