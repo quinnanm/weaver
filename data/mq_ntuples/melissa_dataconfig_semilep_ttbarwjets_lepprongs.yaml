@@ -54,7 +54,7 @@ new_variables:
     # fj_bkgd_label: (fj_QCD_label==1)
     # fj_ttbar_label: ((fj_Top_2q==1) | (fj_Top_elenu==1) | (fj_Top_munu==1) | (fj_Top_taunu==1))
     # Signal (HVV)
-    fj_isHVV_taunuqq:((fj_H_VV_leptauelvqq==1) | (fj_H_VV_leptaumuvqq==1) | (fj_H_VV_hadtauvqq==1))
+    fj_isHVV_taunuqq: ((fj_H_VV_leptauelvqq==1) | (fj_H_VV_leptaumuvqq==1) | (fj_H_VV_hadtauvqq==1))
     fj_isHVV_elenuqq_lepmerged: (fj_H_VV_elenuqq==1) & (fj_lepinprongs==1)
     fj_isHVV_elenuqq_lepsplit: (fj_H_VV_elenuqq==1) & (fj_lepinprongs!=1)
     fj_isHVV_munuqq_lepmerged: (fj_H_VV_munuqq==1) & (fj_lepinprongs==1)
