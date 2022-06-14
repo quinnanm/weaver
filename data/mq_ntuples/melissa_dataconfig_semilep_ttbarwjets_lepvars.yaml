@@ -228,7 +228,6 @@ observers:
    - fj_ttbar_bmerged
    - fj_ttbar_bsplit
    - fj_wjets_label
-   - fj_isHVV_taunuqq
 
 weights:
    ### [option 1] use precomputed weights stored in the input files

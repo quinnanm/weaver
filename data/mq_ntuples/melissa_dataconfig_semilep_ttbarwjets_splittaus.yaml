@@ -166,8 +166,6 @@ observers:
    - fj_H_VV_munuqq
    - target_mass
    - fj_QCD_label
-   - fj_isHVV_istau
-   - fj_isHVV_leptau
 
 weights:
    ### [option 1] use precomputed weights stored in the input files
