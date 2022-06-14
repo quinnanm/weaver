@@ -557,9 +557,9 @@ class ParticleNetTaggerPyG(nn.Module):
         mu_pee = torch.stack((mu_pt, mu_e, mu_abseta), dim=1)
         mu_pee *= mu_mask
 
-        pee = torch.cat((pf_pee, sv_pee, el_pee, mu_pee), dim=4)
+        pee = torch.cat((pf_pee, sv_pee, el_pee, mu_pee), dim=2)
 
-        points = torch.cat((pf_points, sv_points, el_points, mu_points), dim=4)
+        points = torch.cat((pf_points, sv_points, el_points, mu_points), dim=2)
         features = torch.cat(
             (
                 self.pf_conv(pf_features * pf_mask) * pf_mask,
@@ -567,9 +567,9 @@ class ParticleNetTaggerPyG(nn.Module):
                 self.el_conv(el_features * el_mask) * el_mask,
                 self.mu_conv(mu_features * mu_mask) * mu_mask,
             ),
-            dim=4,
+            dim=2,
         )
-        mask = torch.cat((pf_mask, sv_mask, el_mask, mu_mask), dim=4)
+        mask = torch.cat((pf_mask, sv_mask, el_mask, mu_mask), dim=2)
 
         # pee = torch.cat((pf_pee, sv_pee), dim=2)
 
