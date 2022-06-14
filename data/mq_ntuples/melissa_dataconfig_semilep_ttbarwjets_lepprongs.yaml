@@ -63,7 +63,7 @@ new_variables:
     fj_isHVV_taunuqq_lepsplit: (fj_isHVV_taunuqq==1) & (fj_lepinprongs!=1)
     fj_isHVV_elenuqq: (fj_H_VV_elenuqq==1)
     fj_isHVV_munuqq: (fj_H_VV_munuqq==1)
-    fj_sig_label: ((fj_H_VV_elenuqq==1) | (fj_H_VV_munuqq==1) | (fj_isHVV_taunuqq==1))
+    fj_sig_label: ((fj_isHVV_elenuqq==1) | (fj_isHVV_munuqq==1) | (fj_isHVV_taunuqq==1))
 
 preprocess:
     ### method: [manual, auto] - whether to use manually specified parameters for variable standardization
