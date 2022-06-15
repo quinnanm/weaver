@@ -56,8 +56,8 @@ new_variables:
     fj_isHVV_leptaumuvqq: (fj_H_VV_leptaumuvqq==1)
     fj_isHVV_hadtauvqq: (fj_H_VV_hadtauvqq==1)
     fj_isHVV_leptau: (fj_H_VV_leptauelvqq==1 | fj_H_VV_leptaumuvqq==1)
-    fj_isHVV_istau: (fj_H_VV_leptau==1 | fj_isHVV_hadtauvqq==1)
-    fj_sig_label: ((fj_H_VV_elenuqq==1) | (fj_H_VV_munuqq==1) | (fj_isHVV_istau==1))
+    fj_isHVV_istau: ((fj_H_VV_leptauelvqq==1) | (fj_H_VV_leptaumuvqq==1) | (fj_H_VV_hadtauvqq==1))
+    fj_sig_label: ((fj_H_VV_elenuqq==1) | (fj_H_VV_munuqq==1) | ((fj_H_VV_leptauelvqq==1) | (fj_H_VV_leptaumuvqq==1) | (fj_H_VV_hadtauvqq==1)))
 preprocess:
     ### method: [manual, auto] - whether to use manually specified parameters for variable standardization
     ### [note]: `[var]_mask` will not be transformed even if `method=auto`
