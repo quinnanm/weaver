@@ -1,5 +1,5 @@
 import torch
-from utils.nn.model.ParticleNetPyG import ParticleNetTaggerPyG
+from utils.nn.model.ParticleNetPyG_lepvars import ParticleNetTaggerPyG
 from utils.nn.model.ParticleNetPyGJittable import ParticleNetTaggerPyGJittable
 
 
