@@ -440,6 +440,8 @@ class ParticleNetTaggerPyG(nn.Module):
         self,
         pf_features_dims: int,
         sv_features_dims: int,
+        el_features_dims: int,
+        mu_features_dims: int,
         num_classes: int,
         conv_params: list = [(7, (32, 32, 32)), (7, (64, 64, 64))],
         fc_params: list = [(128, 0.1)],
@@ -448,6 +450,8 @@ class ParticleNetTaggerPyG(nn.Module):
         use_counts: bool = True,
         pf_input_dropout: bool = None,
         sv_input_dropout: bool = None,
+        el_input_dropout: bool = None,
+        mu_input_dropout: bool = None,
         for_inference: bool = False,
         use_edge_feats: bool = False,
         **kwargs,
@@ -455,9 +459,13 @@ class ParticleNetTaggerPyG(nn.Module):
         super(ParticleNetTaggerPyG, self).__init__(**kwargs)
         self.pf_input_dropout = nn.Dropout(pf_input_dropout) if pf_input_dropout else None
         self.sv_input_dropout = nn.Dropout(sv_input_dropout) if sv_input_dropout else None
+        self.el_input_dropout = nn.Dropout(el_input_dropout) if el_input_dropout else None
+        self.mu_input_dropout = nn.Dropout(mu_input_dropout) if mu_input_dropout else None
 
         self.pf_conv = FeatureConv(pf_features_dims, 32)
         self.sv_conv = FeatureConv(sv_features_dims, 32)
+        self.el_conv = FeatureConv(el_features_dims, 32)
+        self.mu_conv = FeatureConv(mu_features_dims, 32)
 
         self.pn = ParticleNetPyG(
             input_dims=32,
@@ -481,6 +489,12 @@ class ParticleNetTaggerPyG(nn.Module):
         sv_points: Tensor,
         sv_features: Tensor,
         sv_mask: Tensor,
+        el_points: Tensor,
+        el_features: Tensor,
+        el_mask: Tensor,
+        mu_points: Tensor,
+        mu_features: Tensor,
+        mu_mask: Tensor,
     ):
         """
         Runs pf candidates and svs through ParticleNet and outputs multi-class tagger scores
@@ -503,6 +517,16 @@ class ParticleNetTaggerPyG(nn.Module):
             sv_points *= sv_mask
             sv_features *= sv_mask
 
+        if self.el_input_dropout:
+            el_mask = (self.el_input_dropout(el_mask) != 0).float()
+            el_points *= el_mask
+            el_features *= el_mask
+
+        if self.mu_input_dropout:
+            mu_mask = (self.mu_input_dropout(mu_mask) != 0).float()
+            mu_points *= mu_mask
+            mu_features *= mu_mask
+
         pf_pt = torch.exp((pf_features[:, 0] / 0.5) + 1.0)
         pf_e = torch.exp((pf_features[:, 1] / 0.5) + 1.3)
         pf_abseta = (pf_features[:, 9] / 1.6) + 0.6
@@ -517,16 +541,46 @@ class ParticleNetTaggerPyG(nn.Module):
         sv_pee = torch.stack((sv_pt, sv_e, sv_abseta), dim=1)
         sv_pee *= sv_mask
 
-        pee = torch.cat((pf_pee, sv_pee), dim=2)
+        el_pt = torch.exp((el_features[:, 0] / 0.6) + 4.0)
+        el_m = (el_features[:, 1] / 0.3) + 1.2
+        el_abseta = (el_features[:, 4] / 1.6) + 0.5
+        el_p = el_pt * torch.cosh(el_abseta)
+        el_e = torch.sqrt((el_m ** 2) + (el_p ** 2))
+        el_pee = torch.stack((el_pt, el_e, el_abseta), dim=1)
+        el_pee *= el_mask
 
-        points = torch.cat((pf_points, sv_points), dim=2)
+        mu_pt = torch.exp((mu_features[:, 0] / 0.6) + 4.0)
+        mu_m = (mu_features[:, 1] / 0.3) + 1.2
+        mu_abseta = (mu_features[:, 4] / 1.6) + 0.5
+        mu_p = mu_pt * torch.cosh(mu_abseta)
+        mu_e = torch.sqrt((mu_m ** 2) + (mu_p ** 2))
+        mu_pee = torch.stack((mu_pt, mu_e, mu_abseta), dim=1)
+        mu_pee *= mu_mask
+
+        pee = torch.cat((pf_pee, sv_pee, el_pee, mu_pee), dim=2)
+
+        points = torch.cat((pf_points, sv_points, el_points, mu_points), dim=2)
         features = torch.cat(
             (
                 self.pf_conv(pf_features * pf_mask) * pf_mask,
                 self.sv_conv(sv_features * sv_mask) * sv_mask,
+                self.el_conv(el_features * el_mask) * el_mask,
+                self.mu_conv(mu_features * mu_mask) * mu_mask,
             ),
             dim=2,
         )
-        mask = torch.cat((pf_mask, sv_mask), dim=2)
+        mask = torch.cat((pf_mask, sv_mask, el_mask, mu_mask), dim=2)
+
+        # pee = torch.cat((pf_pee, sv_pee), dim=2)
+
+        # points = torch.cat((pf_points, sv_points), dim=2)
+        # features = torch.cat(
+        #     (
+        #         self.pf_conv(pf_features * pf_mask) * pf_mask,
+        #         self.sv_conv(sv_features * sv_mask) * sv_mask,
+        #     ),
+        #     dim=2,
+        # )
+        # mask = torch.cat((pf_mask, sv_mask), dim=2)
 
         return self.pn(points, pee, features, mask)
