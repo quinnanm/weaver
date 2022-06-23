@@ -137,8 +137,8 @@ labels:
 
     type: simple
     value: [
-        fj_ttbar_bmerged, fj_ttbar_bsplit, fj_wjets_label,
-        fj_isHVV_elenuqq, fj_isHVV_munuqq, fj_isHVV_leptau, fj_isHVV_hadtau
+        fj_ttbar_lepmerged, fj_ttbar_lepsplit, fj_wjets_lepmerged, fj_wjets_lepsplit,
+        fj_isHVV_elenuqq, fj_isHVV_munuqq, fj_isHVV_leptauelvqq, fj_isHVV_leptaumuvqq, fj_isHVV_hadtauvqq
     ]
 
 observers:
