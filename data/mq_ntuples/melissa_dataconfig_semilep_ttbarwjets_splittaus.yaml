@@ -133,12 +133,12 @@ labels:
     ### [option 1] use `simple` for binary/multi-class classification, then `value` is a list of 0-1 labels
     # 
     # fj_isHVV_elenuqq_merged, fj_isHVV_elenuqq_semimerged, fj_isHVV_munuqq_merged, fj_isHVV_munuqq_semimerged, fj_isHVV_taunuqq_merged, fj_isHVV_taunuqq_semimerged,
-        # fj_isHVV_elenuqq, fj_isHVV_munuqq, fj_isHVV_leptauelvqq, fj_isHVV_leptaumuvqq, fj_isHVV_hadtauvqq
+    # fj_isHVV_elenuqq, fj_isHVV_munuqq, fj_isHVV_leptauelvqq, fj_isHVV_leptaumuvqq, fj_isHVV_hadtauvqq
 
     type: simple
     value: [
         fj_ttbar_bmerged, fj_ttbar_bsplit, fj_wjets_label,
-        fj_isHVV_elenuqq, fj_isHVV_munuqq, fj_isHVV_leptauelvqq, fj_isHVV_leptaumuvqq, fj_isHVV_hadtauvqq
+        fj_isHVV_elenuqq, fj_isHVV_munuqq, fj_H_VV_leptauelvqq, fj_H_VV_leptaumuvqq, fj_H_VV_hadtauvqq
     ]
 
 observers:
