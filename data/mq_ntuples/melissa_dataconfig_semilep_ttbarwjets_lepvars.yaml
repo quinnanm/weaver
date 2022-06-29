@@ -64,6 +64,10 @@ new_variables:
     fj_isHVV_taunuqq_lepmerged: (fj_isHVV_taunuqq==1) & (fj_lepinprongs==1)
     fj_isHVV_taunuqq_lepsplit: (fj_isHVV_taunuqq==1) & (fj_lepinprongs!=1)
     fj_sig_label: ((fj_H_VV_elenuqq==1) | (fj_H_VV_munuqq==1) | ((fj_H_VV_leptauelvqq==1) | (fj_H_VV_leptaumuvqq==1) | (fj_H_VV_hadtauvqq==1)))
+    el_mask = (elec_pt>0.0)
+    mu_mask = (muon_pt>0.0))
+
+
 preprocess:
     ### method: [manual, auto] - whether to use manually specified parameters for variable standardization
     ### [note]: `[var]_mask` will not be transformed even if `method=auto`
@@ -162,6 +166,10 @@ inputs:
         - elec_r9
         - elec_sieie
         - elec_sip3d
+    el_mask:
+        length: 2
+        vars:
+        - el_mask
     mu_points:
         length: 2
         vars:
@@ -187,6 +195,10 @@ inputs:
         - muon_segmentComp
         - muon_sip3d
         - muon_tkRelIso
+    mu_mask:
+        length: 2
+        vars:
+        - mu_mask
 
 
 labels:
