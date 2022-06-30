@@ -491,7 +491,7 @@ class ParticleNetTaggerPyG(nn.Module):
         sv_mask: Tensor,
         el_points: Tensor,
         el_features: Tensor,
-        mu_mask: Tensor,
+        el_mask: Tensor,
         mu_points: Tensor,
         mu_features: Tensor,
         mu_mask: Tensor,
