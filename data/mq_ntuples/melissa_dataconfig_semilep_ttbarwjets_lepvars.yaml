@@ -64,8 +64,8 @@ new_variables:
     fj_isHVV_taunuqq_lepmerged: (fj_isHVV_taunuqq==1) & (fj_lepinprongs==1)
     fj_isHVV_taunuqq_lepsplit: (fj_isHVV_taunuqq==1) & (fj_lepinprongs!=1)
     fj_sig_label: ((fj_H_VV_elenuqq==1) | (fj_H_VV_munuqq==1) | ((fj_H_VV_leptauelvqq==1) | (fj_H_VV_leptaumuvqq==1) | (fj_H_VV_hadtauvqq==1)))
-    el_mask = (elec_pt>0.0)
-    mu_mask = (muon_pt>0.0))
+    el_mask: (elec_pt>0.0)
+    mu_mask: (muon_pt>0.0))
 
 
 preprocess:
