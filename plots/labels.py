@@ -21,6 +21,18 @@ label_dict = {
     "top_bsplit": {"legend": "Top unmerged b", "label": "fj_ttbar_bsplit"},
     "top_bmerged": {"legend": "Top merged b", "label": "fj_ttbar_bmerged"},
     
+    "top_lm": {"legend": "ttbar merged lep", "label": "fj_ttbar_lepmerged"},
+    "top_ls": {"legend": "ttbar split lep", "label": "fj_ttbar_lepsplit"},
+    "wjets_lm": {"legend": "W+Jets merged lep", "label": "fj_wjets_lepmerged"},
+    "wjets_ls": {"legend": "W+Jets split lep", "label": "fj_wjets_lepsplit"},
+    
+    "hww_ele_lm": {"legend": "H(VV) ele merged lep", "label": "fj_isHVV_elenuqq_lepmerged"},
+    "hww_mu_lm": {"legend": "H(VV) mu merged lep", "label": "fj_isHVV_munuqq_lepmerged"},
+    "hww_tau_lm": {"legend": "H(VV) tau merged lep", "label": "fj_isHVV_taunuqq_lepmerged"},
+    "hww_ele_ls": {"legend": "H(VV) ele split lep", "label": "fj_isHVV_elenuqq_lepsplit"},
+    "hww_mu_ls": {"legend": "H(VV) mu split lep", "label": "fj_isHVV_munuqq_lepsplit"},
+    "hww_tau_ls": {"legend": "H(VV) tau split lep", "label": "fj_isHVV_taunuqq_lepsplit"},
+    
     "ttbar": {"legend": "ttbar", "label": "fj_bkg_label"},
     
     "wjets": {"legend": "W+Jets", "label": "fj_wjets_label"},
