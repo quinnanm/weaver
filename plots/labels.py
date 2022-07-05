@@ -36,6 +36,7 @@ label_dict = {
     "ttbar": {"legend": "ttbar", "label": "fj_bkg_label"},
     "ttbar_l": {"legend": "ttbar", "label": "fj_bkg_label"},
     "wjets": {"legend": "W+Jets", "label": "fj_wjets_label"},
+    "wjets_l": {"legend": "W+Jets", "label": "fj_bkg_label"},
     
     "ttbarwjets": {"legend": "W+Jets and ttbar", "label": "fj_bkg_label"},
     "ttbarwjetsqcd": {"legend": "W+Jets and ttbar and QCD", "label": "fj_bkg_label"},
