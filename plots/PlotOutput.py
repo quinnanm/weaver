@@ -150,6 +150,11 @@ class PlotOutput:
                 "fj_ttbar_lepsplit",
                 "fj_ttbar_lepmerged",
             ]
+        elif self.bkg == "wjets_l":
+            bkglabels = [
+                "fj_wjets_lepsplit",
+                "fj_wjets_lepmerged",
+            ]
         elif self.bkg == "top_bsplit":
             bkglabels = [
                 "fj_ttbar_bsplit",
