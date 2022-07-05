@@ -34,7 +34,7 @@ label_dict = {
     "hww_tau_ls": {"legend": "H(VV) tau split lep", "label": "fj_isHVV_taunuqq_lepsplit"},
     
     "ttbar": {"legend": "ttbar", "label": "fj_bkg_label"},
-    
+    "ttbar_l": {"legend": "ttbar", "label": "fj_bkg_label"},
     "wjets": {"legend": "W+Jets", "label": "fj_wjets_label"},
     
     "ttbarwjets": {"legend": "W+Jets and ttbar", "label": "fj_bkg_label"},
