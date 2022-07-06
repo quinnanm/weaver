@@ -50,6 +50,9 @@ label_dict = {
     "hww_ele": {"legend": "H(VV) ele", "label": "fj_isHVV_elenuqq"},
     "hww_mu": {"legend": "H(VV) mu", "label": "fj_isHVV_munuqq"},
     "hww_tau": {"legend": "H(VV) tau", "label": "fj_isHVV_taunuqq"},
+    "hww_tau_el": {"legend": "H(VV) tau (el)", "label": "fj_H_VV_leptauelvqq"},
+    "hww_tau_mu": {"legend": "H(VV) leptau (mu)", "label": "fj_H_VV_leptaumuvqq"},
+    "hww_tau_had": {"legend": "H(VV) hadtau ", "label": "fj_H_VV_hadtauvqq"},
     
     "hww_elenuqq": {"legend": "H(VV) ele", "label": "fj_H_VV_elenuqq"},
     "hww_munuqq": {"legend": "H(VV) mu", "label": "fj_H_VV_munuqq"},
