@@ -34,6 +34,7 @@ class PlotOutput:
         oldpn=False,
         mbranch=None,
         nprongs=None,
+	ptrange=None,
     ):
         self.ifile = ifile
         self.dnn = dnn
@@ -54,6 +55,14 @@ class PlotOutput:
             self.oldpn = None
 
         self.ptrange = [400, 600]
+	if (ptrange is not None) and (ptrange is not "400-600") :
+	    if ptrange =='300-400':
+	        self.ptrange = [300,400]
+	    elif ptrange =='400-500':
+	        self.ptrange = [400,500]
+	    elif ptrange =='500-600':
+	        self.ptrange = [500,600]
+		
         if '4q' in label_dict[sig]["label"] or '3q' in label_dict[sig]["label"]:
             self.msdrange = [60, 150]
         else:
