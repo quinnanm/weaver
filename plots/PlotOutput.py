@@ -55,7 +55,7 @@ class PlotOutput:
             self.oldpn = None
 
         self.ptrange = [400, 600]
-        if (ptrange is not None) and (ptrange is not "400-600") :
+        if (ptrange is not None) and (ptrange!="400-600") :
             if ptrange =='300-400':
                 self.ptrange = [300,400]
             elif ptrange =='400-500':
