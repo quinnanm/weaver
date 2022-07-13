@@ -56,13 +56,13 @@ def get_rocs(p, args, jsig=0, signame=""):
         if args.nprongs:
             fp_tp[r"$m_H$ flat 3prongs"] = p.roc(score, "sigmask", (p.mask_flat & p.mask3p))
             fp_tp[r"$m_H$ flat 4prongs"] = p.roc(score, "sigmask", (p.mask_flat & p.mask4p))
-        if args.ptrange!='400600':
-            if args.ptrange=='300400':
-                   fp_tp[r"pT 300-400"] = p.roc(score, "sigmask", (p.mask_flat & p.mask_pt300400))
-            elif args.ptrange=='400500':
-                   fp_tp[r"pT 400-500"] = p.roc(score, "sigmask", (p.mask_flat & p.mask_pt400500))
-            elif args.ptrange=='500600':
-                   fp_tp[r"pT 500-600"] = p.roc(score, "sigmask", (p.mask_flat & p.mask_pt500600))
+        if args.ptrange!='400-600':
+            if args.ptrange=='300-400':
+                   fp_tp[r"pT 300-400 GeV"] = p.roc(score, "sigmask", (p.mask_flat & p.mask_pt300400))
+            elif args.ptrange=='400-500':
+                   fp_tp[r"pT 400-500 GeV"] = p.roc(score, "sigmask", (p.mask_flat & p.mask_pt400500))
+            elif args.ptrange=='500-600':
+                   fp_tp[r"pT 500-600 GeV"] = p.roc(score, "sigmask", (p.mask_flat & p.mask_pt500600))
         # for mh125
         if ak.any(p.mask_mh125):
             fp_tp[r"$m_H$:125"] = p.roc(score, "sigmask", p.mask_mh125)
@@ -218,7 +218,8 @@ def main(args):
             fp_tp_all,
             label="allsig_summary",
             title=f"HWW vs %s"%bkg,
-            ptcut="%s $p_T$:[400-600] GeV, $|\eta|<2.4$"%(args.jet),
+            #ptcut="%s $p_T$:[400-600] GeV, $|\eta|<2.4$"%(args.jet),
+            ptcut="%s $p_T$:[%s] GeV, $|\eta|<2.4$"%(args.jet, args.ptrange),
             msdcut="$m_{SD}$:[%s-%s] GeV"%(p.msdrange[0],p.msdrange[1]),
         )
 
@@ -231,7 +232,7 @@ if __name__ == "__main__":
     parser.add_argument("--name", required=True, help="name of the model(s)")
     parser.add_argument("--mbranch", default=None, help="mass branch name")
     parser.add_argument("--jet", default="AK15", help="jet type")
-    parser.add_argument("--ptrange", default="400600", help="pt range. 400600, 300400, 400500, or 500600")
+    parser.add_argument("--ptrange", default="400-600", help="pt range. 400-600, 300-400, 400-500, or 500-600")
     parser.add_argument("--dnn", action="store_true", default=False, help="is dnn tuple?")
     parser.add_argument(
         "--oldpn", action="store_true", default=False, help="is oldpn branch saved?"
