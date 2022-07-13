@@ -56,13 +56,7 @@ def get_rocs(p, args, jsig=0, signame=""):
         if args.nprongs:
             fp_tp[r"$m_H$ flat 3prongs"] = p.roc(score, "sigmask", (p.mask_flat & p.mask3p))
             fp_tp[r"$m_H$ flat 4prongs"] = p.roc(score, "sigmask", (p.mask_flat & p.mask4p))
-        if args.ptrange!='400-600':
-            if args.ptrange=='300-400':
-                   fp_tp[r"$p_T$:[300-400] GeV"] = p.roc(score, "rocmask", (p.mask_flat & p.mask_pt300400))
-            elif args.ptrange=='400-500':
-                   fp_tp[r"$p_T$:[400-500] GeV"] = p.roc(score, "rocmask", (p.mask_flat & p.mask_pt400500))
-            elif args.ptrange=='500-600':
-                   fp_tp[r"$p_T$:[500-600] GeV"] = p.roc(score, "rocmask", (p.mask_flat & p.mask_pt500600))
+
         # for mh125
         if ak.any(p.mask_mh125):
             fp_tp[r"$m_H$:125"] = p.roc(score, "sigmask", p.mask_mh125)
