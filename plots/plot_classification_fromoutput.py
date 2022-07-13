@@ -56,6 +56,13 @@ def get_rocs(p, args, jsig=0, signame=""):
         if args.nprongs:
             fp_tp[r"$m_H$ flat 3prongs"] = p.roc(score, "sigmask", (p.mask_flat & p.mask3p))
             fp_tp[r"$m_H$ flat 4prongs"] = p.roc(score, "sigmask", (p.mask_flat & p.mask4p))
+        if args.ptrange!='400600':
+            if args.ptrange=='300400':
+                   fp_tp[r"pT 300-400"] = p.roc(score, "sigmask", (p.mask_flat & p.mask_pt300400))
+            elif args.ptrange=='400500':
+                   fp_tp[r"pT 400-500"] = p.roc(score, "sigmask", (p.mask_flat & p.mask_pt400500))
+            elif args.ptrange=='500600':
+                   fp_tp[r"pT 500-600"] = p.roc(score, "sigmask", (p.mask_flat & p.mask_pt500600))
         # for mh125
         if ak.any(p.mask_mh125):
             fp_tp[r"$m_H$:125"] = p.roc(score, "sigmask", p.mask_mh125)
@@ -117,6 +124,7 @@ def main(args):
                 args.oldpn,
                 args.mbranch,
                 args.nprongs,
+                args.ptrange
             )
 
             # keys of ROCS to plot
@@ -214,7 +222,6 @@ def main(args):
             msdcut="$m_{SD}$:[%s-%s] GeV"%(p.msdrange[0],p.msdrange[1]),
         )
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--ifile", help="input file with bkg and possibly signal")
@@ -224,6 +231,7 @@ if __name__ == "__main__":
     parser.add_argument("--name", required=True, help="name of the model(s)")
     parser.add_argument("--mbranch", default=None, help="mass branch name")
     parser.add_argument("--jet", default="AK15", help="jet type")
+    parser.add_argument("--ptrange", default="400600", help="pt range. 400600, 300400, 400500, or 500600")
     parser.add_argument("--dnn", action="store_true", default=False, help="is dnn tuple?")
     parser.add_argument(
         "--oldpn", action="store_true", default=False, help="is oldpn branch saved?"
