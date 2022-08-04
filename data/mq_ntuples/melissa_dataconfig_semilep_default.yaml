@@ -48,7 +48,7 @@ new_variables:
     fj_wjets_lepmerged: (fj_lepinprongs==1) & ((fj_V_2q==1) | (fj_V_elenu==1) | (fj_V_munu==1) | (fj_V_taunu==1))
     fj_wjets_lepsplit: (fj_lepinprongs!=1) & ((fj_V_2q==1) | (fj_V_elenu==1) | (fj_V_munu==1) | (fj_V_taunu==1))
     fj_wjets_label: ((fj_V_2q==1) | (fj_V_elenu==1) | (fj_V_munu==1) | (fj_V_taunu==1))
-    fj_bkgd_label: (fj_ttbar_label | fj_QCD_label | fj_wjets_label)
+    fj_bkgd_label: (((fj_V_2q==1) | (fj_V_elenu==1) | (fj_V_munu==1) | (fj_V_taunu==1)) |((fj_Top_2q==1) | (fj_Top_elenu==1) | (fj_Top_munu==1) | (fj_Top_taunu==1))  |((fj_isQCDb==1) | (fj_isQCDbb==1) | (fj_isQCDc==1) | (fj_isQCDcc==1) | (fj_isQCDothers==1)) )
     #
     # signal (HVV)
     fj_isHVV_elenuqq: (fj_H_VV_elenuqq==1)
