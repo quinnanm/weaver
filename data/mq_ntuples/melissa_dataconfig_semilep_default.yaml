@@ -173,7 +173,7 @@ observers:
    - fj_wjets_label
    - fj_ttbar_label
    - lep_iso
-   - lep_miso
+   - lep_miniiso
    - lep_pt_ratio
    - lep_pt
    - lep_dR_fj
