@@ -87,7 +87,6 @@ new_variables:
     fj_isHVV_leptau: ((fj_H_VV_leptauelvqq==1) | (fj_H_VV_leptaumuvqq==1))
     fj_isHVV_istau: ((fj_H_VV_leptauelvqq==1) | (fj_H_VV_leptaumuvqq==1) | (fj_H_VV_hadtauvqq==1))
     fj_sig_label: ((fj_H_VV_elenuqq==1) | (fj_H_VV_munuqq==1) | ((fj_H_VV_leptauelvqq==1) | (fj_H_VV_leptaumuvqq==1) | (fj_H_VV_hadtauvqq==1)))
-    #
     # pfcand_mask: ak.ones_like(pfcand_etarel)
     # sv_mask: ak.ones_like(sv_etarel)
     #######################
@@ -132,7 +131,10 @@ new_variables:
     label_Top_bWtauev: (fj_Top_taunu==1)
     label_Top_bWtaumv: (fj_Top_taunu==1)
     label_Wqq_jets_1c: (fj_V_2q==1) 
-    label_Wqq_jets_0c: (fj_V_2q==1) 
+    label_Wqq_jets_0c: (fj_V_2q==1)
+    label_Top: ((fj_Top_2q==1) | (fj_Top_elenu==1) | (fj_Top_munu==1) | (fj_Top_taunu==1))
+    target_mass: np.maximum(1, np.where(fj_genRes_mass>0, fj_genRes_mass, fj_msoftdrop))
+    label_W_jets: ((fj_V_2q==1) | (fj_V_elenu==1) | (fj_V_munu==1) | (fj_V_taunu==1))
     ##target_mass: np.where(fj_isQCD, fj_genjet_sdmass, fj_gen_mass)
 
 preprocess:
@@ -317,7 +319,6 @@ observers:
     - lep_dR_fj
     - met_relpt
     - fj_ttbar_label
-    - fj_wjets_label,
     - fj_isHVV_elenuqq
     - fj_isHVV_munuqq
     - fj_H_VV_leptauelvqq
@@ -341,7 +342,7 @@ weights:
     reweight_method: flat
     reweight_vars:
         fj_pt: [200, 251, 316, 398, 501, 630, 793, 997, 1255, 1579, 1987, 2500]
-        fj_sdmass:
+        target_mass:
             [
                 20,
                 30,
